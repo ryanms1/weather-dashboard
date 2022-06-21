@@ -1,5 +1,6 @@
 const city = document.getElementById('city')
 const search = document.getElementById('searchCity')
+const apiKey = "a60884f374b19d43c9e55bba9a3df14e"
 const fiveHeader = document.getElementById('fiveHeader')
 const searchedCities = document.getElementById('searchedCities')
 const cityName = document.getElementById('cityName')
@@ -11,7 +12,7 @@ const fiveDay = document.getElementById('fiveDay')
 
 // gets initial city info like lat and long in order to get more info in next fetch function
 function getCity(enteredCity) {
-    const weatherAPI = "http://api.openweathermap.org/geo/1.0/direct?q=" + enteredCity + "&appid=a60884f374b19d43c9e55bba9a3df14e"
+    const weatherAPI = "http://api.openweathermap.org/geo/1.0/direct?q=" + enteredCity + "&appid=" + apiKey
 
     fetch(weatherAPI)
         .then(function (response) {
@@ -38,7 +39,7 @@ function getWeather(cityResults) {
     const lat = cityResults[0].lat
     const lon = cityResults[0].lon
 
-    cityWeatherAPI = "https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + lon + "&exclude=minutely,hourly&units=imperial&appid=a60884f374b19d43c9e55bba9a3df14e"
+    cityWeatherAPI = "https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + lon + "&exclude=minutely,hourly&units=imperial&appid=" + apiKey
 
 
     fetch(cityWeatherAPI)
