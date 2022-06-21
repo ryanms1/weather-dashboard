@@ -12,7 +12,7 @@ const fiveDay = document.getElementById('fiveDay')
 
 // gets initial city info like lat and long in order to get more info in next fetch function
 function getCity(enteredCity) {
-    const weatherAPI = "http://api.openweathermap.org/geo/1.0/direct?q=" + enteredCity + "&appid=" + apiKey
+    const weatherAPI = "https://api.openweathermap.org/geo/1.0/direct?q=" + enteredCity + "&appid=" + apiKey
 
     fetch(weatherAPI)
         .then(function (response) {
@@ -54,7 +54,7 @@ function getWeather(cityResults) {
             const uv = document.createElement('li')
 
             const icon = document.createElement('img')
-            icon.src = "http://openweathermap.org/img/wn/" + data.daily[0].weather[0].icon + ".png"
+            icon.src = "https://openweathermap.org/img/wn/" + data.daily[0].weather[0].icon + ".png"
 
             cityName.append(icon)
 
@@ -80,7 +80,7 @@ function getWeather(cityResults) {
                 date.innerText = currentDate.toLocaleDateString()
                 console.log(date)
 
-                icon.src = "http://openweathermap.org/img/wn/" + data.daily[i].weather[0].icon + ".png"
+                icon.src = "https://openweathermap.org/img/wn/" + data.daily[i].weather[0].icon + ".png"
                 temp.innerHTML = "Temp: " + data.daily[i].temp.day + " &#8457"
                 wind.innerHTML = "Wind: " + data.daily[i].wind_speed + " MPH"
                 humidity.innerHTML = "Humidity: " + data.daily[i].humidity + "%"
